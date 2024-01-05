@@ -1,6 +1,6 @@
-package nl.craftsmen.Employee;
+package nl.craftsmen.employee;
 
-import nl.craftsmen.Employee.entity.Employee;
+import nl.craftsmen.employee.entity.Employee;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;

@@ -1,4 +1,4 @@
-package nl.craftsmen.Employee;
+package nl.craftsmen.employee;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

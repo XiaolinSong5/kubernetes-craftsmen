@@ -1,6 +1,6 @@
-package nl.craftsmen.Employee;
+package nl.craftsmen.employee;
 
-import nl.craftsmen.Employee.entity.Employee;
+import nl.craftsmen.employee.entity.Employee;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
