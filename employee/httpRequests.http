@@ -1,11 +1,11 @@
-GET http://localhost:8080/Bitter%20bier
+GET http://localhost:8080/employee/Bitter%20bier
 
 ###
 
-GET http://localhost:8080/actuator/health/liveness
+GET http://localhost:8080/employee/actuator/health/liveness
 
 ###
 
-GET http://localhost:8080/actuator/health/readiness
+GET http://localhost:8080/employee/actuator/health/readiness
 
 ###

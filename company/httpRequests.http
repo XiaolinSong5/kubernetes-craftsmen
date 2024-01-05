@@ -1,14 +1,14 @@
-GET http://localhost:8081/hello
+GET http://localhost:8081/company/hello
 
 ###
 
-GET http://localhost:8081/average-monthly-salary/Bitter%20bier
+GET http://localhost:8081/company/average-monthly-salary/Bitter%20bier
 
 ###
 
-GET http://localhost:8081/actuator/health
+GET http://localhost:8081/company/actuator/health
 ###
 
-GET http://localhost:8081/actuator/health/readiness
+GET http://localhost:8081/company/actuator/health/readiness
 
 ###

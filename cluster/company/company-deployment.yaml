@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: company
+  namespace: maartenjan
+  labels:
+    app: company
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: company
+  template:
+    metadata:
+      name: company
+      labels:
+        app: company
+    spec:
+      containers:
+        - name: company
+          image: registry.gitlab.com/craftsmen/kubernetes-for-developers-java:company-maarten-jan
+          imagePullPolicy: Always
+          securityContext:
+            allowPrivilegeEscalation: false
+            runAsNonRoot: true
+            seccompProfile:
+              type: RuntimeDefault
+            capabilities:
+              drop:
+                - ALL
+          ports:
+            - containerPort: 8081
+          resources:
+            requests:
+              cpu: "0.1"
+              memory: 256Mi
+            limits:
+              cpu: "0.2"
+              memory: 256Mi
+      restartPolicy: Always
+      
