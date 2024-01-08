@@ -1,55 +1,64 @@
-# Kubernetes voor ontwikkelaars
-Dit is een voorbeeld salarisadministratie-appje blablabla
+# Kubernetes for developers
+This is an example salary application consisting of companies and employees.
 
-## Voorbereiding
-- Installeer docker
-- Installeer Java 17 (en maven)
-- Installeer [kubectl](https://kubernetes.io/docs/tasks/tools/) 
-- Voor intellij: Kubernetes plugin
+## Preparations
+- Install docker
+- Install Java 17 (and maven)
+- Install [kubectl](https://kubernetes.io/docs/tasks/tools/) 
+- For IntelliJ IDEA: install the Kubernetes plugin
 
-## Opdrachten
+## Tasks
 
-### Deploy de Employee app in je cluster
-1. Bouw en run de employee spring boot app
+### Getting the Employee app on your cluster
+1. Build the Employee Spring Boot app
    
    ```bash
    ./employee/docker-build.sh
+   ```
+   
+2. Run the Employee app we just build
+
+   ```bash
    ./employee/docker-run.sh
    ```
-
-   Als het goed is start nu de spring boot applicatie en kun je de endpoints bereiken die gedefinieerd zijn in `employee/httpRequests.http` 
-
-2. Push de gebouwde image naar de image registry.
    
-   In order to be able to push your image you need to login into registry.gitlab.com. For that you need an access token with read and write privileges (read_registry, write_registry). You can create an access token [here](https://gitlab.com/-/user_settings/personal_access_tokens). 
+   If everything went alright, you should now have a running Spring Boot application.
+   You can reach its endpoints using the requests defined in `employee/httpRequests.http`.
+
+3. Push the build image to the image registry.
    
-   After that, you need to login into the gitlab registry:
+   In order to be able to push your image you need to login into the registry.
+   Run the command below and use the username and password found in the slides: 
    
    ```bash
-   docker login registry.gitlab.com
+   docker login registry.lion7.dev
    ```
    
-   After a succesful login, you can push your image: 
+   Push your image: 
 
    ```bash
-   ./employee/docker-push
+   ./employee/docker-push.sh
    ```
 
-3. Run your image in your kubernetes cluster. 
+4. Deploy your image in your kubernetes cluster by applying the Kustomization:
 
-4. Useful kubernetes commands to look around. 
+   ```bash
+   kubectl apply -k ./employee/k8s
+   ```
+
+5. Useful kubernetes commands to look around. 
    See [here](https://kubernetes.io/docs/reference/kubectl/quick-reference/) for the kubernetes quick reference guide. 
 
    ```
    kubectl get deployments
    kubectl get services
    kubectl get pods
-   kubectl logs <podnaam>
+   kubectl logs <pod-name>
    kubectl get replicasets
-   kubectl describe deployment <deployment>
+   kubectl describe deployment <name>
    ```
 
-### Configure the healthchecks for the employee app
+### Configure the health checks for the employee app
 As you probably know, the Spring boot actuator library provides endpoints to allow Kubernetes to check on the health of the pod (see [here](https://www.baeldung.com/spring-liveness-readiness-probes) for some more background). There are currently two endpoints available: `/acutator/health/liveness` and `/actuator/health/readiness`. 
 
 The assignment is to configure the health and readiness probe for the employee app (see [here](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-a-liveness-http-request) for more info). 
