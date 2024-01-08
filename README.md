@@ -50,22 +50,14 @@ cp ~/Downloads/$USER.kubeconfig ~/.kube/config
    ```bash
    ./employee/docker-push.sh
    ```
-   
-4. Configure the kubectl CLI
 
-   Point the KUBECONFIG env var to the cluster of this workshop using the kubeconfig we provided:
-
-   ```bash
-   export KUBECONFIG=/path/to/kubeconfig
-   ```
-
-5. Deploy your image in your kubernetes cluster by applying the Kustomization:
+4. Deploy your image in your kubernetes cluster by applying the Kustomization:
 
    ```bash
    kubectl apply -k ./employee/k8s
    ```
 
-6. Useful kubernetes commands to look around. 
+5. Useful kubernetes commands to look around. 
    See [here](https://kubernetes.io/docs/reference/kubectl/quick-reference/) for the kubernetes quick reference guide. 
 
    ```
