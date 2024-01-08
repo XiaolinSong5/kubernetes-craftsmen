@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: employee
-          image: employee
+          image: registry.lion7.dev/maarten-jan/employee
           imagePullPolicy: Always
           securityContext:
             allowPrivilegeEscalation: false

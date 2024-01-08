@@ -6,6 +6,3 @@ resources:
   - deployment.yaml
   - service.yaml
   - ingress.yaml
-images:
-  - name: company
-    newName: registry.lion7.dev/craftsmen/kubernetes-for-developers-java:company-maarten-jan
