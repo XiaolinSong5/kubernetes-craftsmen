@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: company
-          image: company
+          image: companies
           imagePullPolicy: Always
           volumeMounts:
             - name: config-volume
@@ -30,15 +30,21 @@ spec:
             capabilities:
               drop:
                 - ALL
+          livenessProbe:
+            httpGet:
+              path: /actuator/health/liveness
+              port: 8081
+            initialDelaySeconds: 10
+            periodSeconds: 10
           ports:
             - containerPort: 8081
           resources:
             requests:
               cpu: "0.1"
-              memory: 256Mi
+              memory: 2Gi
             limits:
               cpu: "0.2"
-              memory: 256Mi
+              memory: 2Gi
       volumes:
         - name: config-volume
           configMap:

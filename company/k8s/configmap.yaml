@@ -4,4 +4,4 @@ metadata:
   name: company
 data:
   application.properties: |    
-    company.employee.client=http://employee:8080
+    company.employee.client=http://localhost:8080
