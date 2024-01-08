@@ -37,18 +37,41 @@ Dit is een voorbeeld salarisadministratie-appje blablabla
 
 3. Run your image in your kubernetes cluster. 
 
+4. Useful kubernetes commands to look around. 
+   See [here](https://kubernetes.io/docs/reference/kubectl/quick-reference/) for the kubernetes quick reference guide. 
+
+   ```
+   kubectl get deployments
+   kubectl get services
+   kubectl get pods
+   kubectl logs <podnaam>
+   kubectl get replicasets
+   kubectl describe deployment <deployment>
+   ```
+
 ### Configure the healthchecks for the employee app
 As you probably know, the Spring boot actuator library provides endpoints to allow Kubernetes to check on the health of the pod (see [here](https://www.baeldung.com/spring-liveness-readiness-probes) for some more background). There are currently two endpoints available: `/acutator/health/liveness` and `/actuator/health/readiness`. 
 
 The assignment is to configure the health and readiness probe for the employee app (see [here](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-a-liveness-http-request) for more info). 
 
-### Deploy (and fix) the company deployment
+### Deploy the company app
+We're now going to deploy the company app. Don't worry, this will _not_ work out of the box, we left you some issues to solve!
 
-### endpoints tussen pods configureren
+First off, build and push the company app in the same way as you did for the salary app. Subsequently, you can deploy your app on your cluster. After that, there are several issues to solve. 
 
-### image kan niet gevonden worden
+#### Image cannot be found
 
-### niet genoeg resources voor deployment
+#### Not enough resources
 
-### remote debuggen
+#### pod won't get healthy
+- sb health endpoint is raar
+
+#### High availability service
+
+#### Ingress route does not work
+- port forwarding gebruiken
+
+#### (Re)configure the employee client
+
+#### remote debuggen
 
