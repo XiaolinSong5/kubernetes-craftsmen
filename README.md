@@ -59,9 +59,14 @@ We're now going to deploy the company app. Don't worry, this will _not_ work out
 
 First off, build and push the company app in the same way as you did for the salary app. Subsequently, you can deploy your app on your cluster. After that, there are several issues to solve. 
 
-#### Image cannot be found
+#### Getting the pod to start
+The first issue you will probably encounter is that no pod will be started: `kubectl get pods` will only show you the employee app. What's going on? `kubectl get deployments` will show you a 0/1. `kubectl get replicasets` will show you that 1 company pod is desired, but none are current or ready. `kubectl describe repicaset company-<tag>` will tell you the problem! 
 
-#### Not enough resources
+Now fix this issue :-). 
+
+If you fix this issue you will see the container appear when you type in `kubectl get pods`. But what's this? An ErrImagePull?
+
+Seems there is something misconfigured with your image. Go fix it!
 
 #### pod won't get healthy
 - sb health endpoint is raar

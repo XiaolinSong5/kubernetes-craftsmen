@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: company
-          image: company
+          image: companies
           imagePullPolicy: Always
           securityContext:
             allowPrivilegeEscalation: false
@@ -36,5 +36,3 @@ spec:
             limits:
               cpu: "0.2"
               memory: 256Mi
-      restartPolicy: Always
-      
