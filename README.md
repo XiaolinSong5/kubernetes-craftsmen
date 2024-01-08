@@ -99,6 +99,6 @@ You should be able to reach the company endpoints locally now; for example: `GET
 So the pod is running; something is wrong with the routing. Can you fix it? 
 
 #### (Re)configure the employee client
+When you try the `/company/average-monthly-salary/Bitter%20bier` endpoint, the company app wil call the employee app through the `EmployeeClient.java`. 
 
-#### remote debuggen
-
+Unfortunately, the Company app is misconfigured on the employee endpoint. Can you fix it? 
