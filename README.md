@@ -80,11 +80,11 @@ We're now going to deploy the company app. Don't worry, this will _not_ work out
 First off, build and push the company app in the same way as you did for the salary app. Subsequently, you can deploy your app on your cluster. After that, there are several issues to solve. 
 
 #### Getting the pod to start
-The first issue you will probably encounter is that no pod will be started: `kubectl get pods` will only show you the employee app. What's going on? `kubectl get deployments` will show you a 0/1. `kubectl get replicasets` will show you that 1 company pod is desired, but none are current or ready. `kubectl describe repicaset company-<tag>` will tell you the problem! 
+The first issue you will probably encounter is that no pod will be started: `kubectl get pods` will only show you the employee pod. What's going on? `kubectl get deployments` will show you a 0/1. `kubectl get replicasets` will show you that 1 company pod is desired, but none are current or ready. `kubectl describe repicaset company-<tag>` will tell you the problem! 
 
 Now fix this issue :-). 
 
-If you fix this issue you will see the container appear when you type in `kubectl get pods`. But what's this? An ErrImagePull?
+If you fix this issue you will see the container appear when you type in `kubectl get pods`. But what's this? An `ErrImagePull`?
 
 Seems there is something misconfigured with your image. Go fix it!
 
@@ -97,7 +97,7 @@ Hint: on what endpoint does the spring boot app run its healthcheck? And on what
 Now that we have 1 pod up-and-running, let's make this service a highly available service, by running two instances of this pod. 
 
 #### Ingress route does not work
-You may already have noticed the company endpoints are not reachable through your external endpoint. What's going on? 
+You may already have noticed the company endpoints are not reachable through your external endpoint (for example `GET https://$user.lion7.dev/company/health`). What's going on? 
 
 Let's first check if our app is running correctly, by routing the pod to your local machine: 
 
@@ -122,9 +122,9 @@ kubectl exec -it deployment/company -- /bin/bash
 
 Now inside the pod, type: `curl http://employee:8080/employee/actuator/health` 
 
-You should get an 'up' statement back. Note that when you go 'inside' a pod, you're limited to what the pod has available. 
+You should get an 'up' statement back. Note that when you go 'inside' a pod, you're limited to what the pod has available (in this case, at least bash and curl). 
 
-Type `exit` to leave the interactive sessionn. 
+Type `exit` to leave the interactive session. 
 
 You could also directly execute the curl command without an interactive shell: 
 
