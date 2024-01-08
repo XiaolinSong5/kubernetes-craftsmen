@@ -102,11 +102,31 @@ Let's first check if our app is running correctly, by routing the pod to your lo
 kubectl port-forward company-<id>
 ```
 
-You should be able to reach the company endpoints locally now; for example: `GET http://localhost:8081/company/health/health`
+You should be able to reach the company endpoints locally now; for example: `GET http://localhost:8081/company/health`
 
 So the pod is running; something is wrong with the routing. Can you fix it? 
 
 #### (Re)configure the employee client
 When you try the `/company/average-monthly-salary/Bitter%20bier` endpoint, the company app wil call the employee app through the `EmployeeClient.java`. 
 
-Unfortunately, the Company app is misconfigured on the employee endpoint. Can you fix it? 
+Unfortunately, this doesn't work. Let's first check whether our company app can actually access employee, by executing a curl command from the company pod: 
+
+To start an interactive bash shell: 
+
+```bash
+kubectl exec -it deployment/company -- /bin/bash
+```
+
+Now inside the pod, type: `curl http://employee:8080/employee/actuator/health` 
+
+You should get an 'up' statement back. Note that when you go 'inside' a pod, you're limited to what the pod has available. 
+
+Type `exit` to leave the interactive sessionn. 
+
+You could also directly execute the curl command without an interactive shell: 
+
+```bash
+kubectl exec deployment/company -- curl http://employee:8080/employee/actuator/health
+```
+
+So we've now figured out the company app can reach the employee app. So there's probably something wrong with the endpoint configuration of company somewhere. Can you figure it out? 
