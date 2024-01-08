@@ -4,7 +4,7 @@ metadata:
   name: employee
 spec:
   rules:
-    - host: "$USER.lion7.dev"
+    - host: <your-username-here>.lion7.dev
       http:
         paths:
           - pathType: Prefix

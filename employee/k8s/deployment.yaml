@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: employee
-          image: registry.lion7.dev/$USER/employee
+          image: registry.lion7.dev/<your-username-here>/employee
           imagePullPolicy: Always
           securityContext:
             allowPrivilegeEscalation: false
