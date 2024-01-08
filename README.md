@@ -39,14 +39,22 @@ This is an example salary application consisting of companies and employees.
    ```bash
    ./employee/docker-push.sh
    ```
+   
+4. Configure the kubectl CLI
 
-4. Deploy your image in your kubernetes cluster by applying the Kustomization:
+   Point the KUBECONFIG env var to the cluster of this workshop using the kubeconfig we provided:
+
+   ```bash
+   export KUBECONFIG=/path/to/kubeconfig
+   ```
+
+5. Deploy your image in your kubernetes cluster by applying the Kustomization:
 
    ```bash
    kubectl apply -k ./employee/k8s
    ```
 
-5. Useful kubernetes commands to look around. 
+6. Useful kubernetes commands to look around. 
    See [here](https://kubernetes.io/docs/reference/kubectl/quick-reference/) for the kubernetes quick reference guide. 
 
    ```
