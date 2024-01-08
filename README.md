@@ -94,7 +94,7 @@ Let's first check if our app is running correctly, by routing the pod to your lo
 kubectl port-forward company-<id>
 ```
 
-You should be able to reach the company endpoints locally now; for example: `GET http://localhost:8081/company/actuator/health`
+You should be able to reach the company endpoints locally now; for example: `GET http://localhost:8081/company/health/health`
 
 So the pod is running; something is wrong with the routing. Can you fix it? 
 
