@@ -94,7 +94,7 @@ So now the pod will start, but it will not stay healthy. Something is up with th
 Hint: on what endpoint does the spring boot app run its healthcheck? And on what endpoint is the deployment checking? 
 
 #### High availability service
-Now that we have 1 pod up-and-running, let's make this service a highly available service, by running two instances of this pod. 
+Now that we have 1 company pod up-and-running, let's make this service a highly available service, by running two instances of company. Take note of your resource limits: the goal of this assignment is to run 1 employee pod as well as 2 instances of the company pod within these limits.  
 
 #### Ingress route does not work
 You may already have noticed the company endpoints are not reachable through your external endpoint (for example `GET https://$user.lion7.dev/company/health`). What's going on? 
