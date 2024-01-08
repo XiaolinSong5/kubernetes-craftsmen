@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: company
-  namespace: maartenjan
   labels:
     app: company
 spec:
@@ -18,7 +17,7 @@ spec:
     spec:
       containers:
         - name: company
-          image: registry.gitlab.com/craftsmen/kubernetes-for-developers-java:company-maarten-jan
+          image: company
           imagePullPolicy: Always
           securityContext:
             allowPrivilegeEscalation: false

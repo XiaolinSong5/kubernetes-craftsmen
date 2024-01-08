@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: employee
-  namespace: maartenjan
   labels:
     app: employee
 spec:
@@ -18,7 +17,7 @@ spec:
     spec:
       containers:
         - name: employee
-          image: registry.gitlab.com/craftsmen/kubernetes-for-developers-java:employee-maarten-jan
+          image: employee
           imagePullPolicy: Always
           securityContext:
             allowPrivilegeEscalation: false
@@ -29,7 +28,7 @@ spec:
               drop:
                 - ALL
           ports:
-            - containerPort: 8080
+            - containerPort: 8081
           resources:
             requests:
               cpu: "0.1"
