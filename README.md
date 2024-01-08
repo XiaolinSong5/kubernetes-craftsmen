@@ -7,6 +7,17 @@ This is an example salary application consisting of companies and employees.
 - Install [kubectl](https://kubernetes.io/docs/tasks/tools/) 
 - For IntelliJ IDEA: install the Kubernetes plugin
 
+### Setup Kubernetes connection
+
+#### Make a copy of your existing config
+```shell
+cp ~/.kube/config ~/.kube/config.bak 
+```
+#### Then use our provided config.. 
+```shell
+cp ~/Downloads/$USER.kubeconfig ~/.kube/config
+```
+
 ## Tasks
 
 ### Getting the Employee app on your cluster
@@ -39,22 +50,14 @@ This is an example salary application consisting of companies and employees.
    ```bash
    ./employee/docker-push.sh
    ```
-   
-4. Configure the kubectl CLI
 
-   Point the KUBECONFIG env var to the cluster of this workshop using the kubeconfig we provided:
-
-   ```bash
-   export KUBECONFIG=/path/to/kubeconfig
-   ```
-
-5. Deploy your image in your kubernetes cluster by applying the Kustomization:
+4. Deploy your image in your kubernetes cluster by applying the Kustomization:
 
    ```bash
    kubectl apply -k ./employee/k8s
    ```
 
-6. Useful kubernetes commands to look around. 
+5. Useful kubernetes commands to look around. 
    See [here](https://kubernetes.io/docs/reference/kubectl/quick-reference/) for the kubernetes quick reference guide. 
 
    ```
