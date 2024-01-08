@@ -43,7 +43,7 @@ spec:
               cpu: "0.5"
               memory: 256Mi
             limits:
-              cpu: "1"
+              cpu: "0.5"
               memory: 2Gi
       volumes:
         - name: config-volume
