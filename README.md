@@ -7,6 +7,17 @@ This is an example salary application consisting of companies and employees.
 - Install [kubectl](https://kubernetes.io/docs/tasks/tools/) 
 - For IntelliJ IDEA: install the Kubernetes plugin
 
+### Setup Kubernetes connection
+
+#### Make a copy of your existing config
+```shell
+cp ~/.kube/config ~/.kube/config.bak 
+```
+#### Then use our provided config.. 
+```shell
+cp ~/Downloads/leon.kubeconfig ~/.kube/config
+```
+
 ## Tasks
 
 ### Getting the Employee app on your cluster
