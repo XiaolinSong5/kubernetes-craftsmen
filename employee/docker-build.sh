@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker build -t registry.lion7.dev/craftsmen/kubernetes-for-developers-java:employee-$USER .
+docker build -t "registry.lion7.dev/$USER-employee" "$(dirname $0)"
