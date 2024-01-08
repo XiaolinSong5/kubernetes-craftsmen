@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: company
-          image: companies
+          image: company
           imagePullPolicy: Always
           volumeMounts:
             - name: config-volume

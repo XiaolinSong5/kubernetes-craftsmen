@@ -17,7 +17,7 @@ public class EmployeeClient {
 
     private final RestClient restClient;
 
-    @Value("company.employee.client")
+    @Value("${company.employee.client}")
     private String employeeClient;
 
     private final Logger logger = LoggerFactory.getLogger(EmployeeClient.class);
@@ -30,7 +30,7 @@ public class EmployeeClient {
         logger.info("Getting employees from " + employeeClient);
         return Arrays.stream(restClient
                 .get()
-                .uri(format("http://localhost:8080/%s", companyName))
+                .uri(format("%s/employee/%s", employeeClient, companyName))
                 .retrieve()
                 .body(Employee[].class)).toList();
     }
