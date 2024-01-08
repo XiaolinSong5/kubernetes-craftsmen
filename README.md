@@ -68,8 +68,8 @@ If you fix this issue you will see the container appear when you type in `kubect
 
 Seems there is something misconfigured with your image. Go fix it!
 
-#### pod won't get healthy
-So now the pod will start, but it will not get healthy. Something is up with the healthcheck. Are you able to find the issue and fix it? 
+#### pod won't stay healthy
+So now the pod will start, but it will not stay healthy. Something is up with the healthcheck. Are you able to find the issue and fix it? 
 
 Hint: on what endpoint does the spring boot app run its healthcheck? And on what endpoint is the deployment checking? 
 
