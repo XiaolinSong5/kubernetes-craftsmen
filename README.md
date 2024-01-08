@@ -15,7 +15,7 @@ cp ~/.kube/config ~/.kube/config.bak
 ```
 #### Then use our provided config.. 
 ```shell
-cp ~/Downloads/leon.kubeconfig ~/.kube/config
+cp ~/Downloads/$USER.kubeconfig ~/.kube/config
 ```
 
 ## Tasks

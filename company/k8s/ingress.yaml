@@ -4,7 +4,7 @@ metadata:
   name: company
 spec:
   rules:
-    - host: "maartenjan.lion7.dev"
+    - host: "$USER.lion7.dev"
       http:
         paths:
           - pathType: Prefix
