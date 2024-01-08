@@ -19,6 +19,9 @@ spec:
         - name: company
           image: companies
           imagePullPolicy: Always
+          volumeMounts:
+            - name: config-volume
+              mountPath: /home/user/config
           securityContext:
             allowPrivilegeEscalation: false
             runAsNonRoot: true
@@ -36,3 +39,10 @@ spec:
             limits:
               cpu: "0.2"
               memory: 256Mi
+      volumes:
+        - name: config-volume
+          configMap:
+            name: company
+            items:
+              - key: application.properties
+                path: application.properties

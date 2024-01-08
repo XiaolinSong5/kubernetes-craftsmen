@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: company
+data:
+  application.properties: |    
+    company.employee.client=http://employee:8080

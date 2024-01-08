@@ -72,9 +72,20 @@ Seems there is something misconfigured with your image. Go fix it!
 - sb health endpoint is raar
 
 #### High availability service
+Now that we have 1 pod up-and-running, let's make this service a highly available service, by running two instances of this pod. 
 
 #### Ingress route does not work
-- port forwarding gebruiken
+You may already have noticed the company endpoints are not reachable through your external endpoint. What's going on? 
+
+Let's first check if our app is running correctly, by routing the pod to your local machine: 
+
+```
+kubectl port-forward company-<id>
+```
+
+You should be able to reach the company endpoints locally now; for example: `GET http://localhost:8081/company/actuator/health`
+
+So the pod is running; something is wrong with the routing. Can you fix it? 
 
 #### (Re)configure the employee client
 
