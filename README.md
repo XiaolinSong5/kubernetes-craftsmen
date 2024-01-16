@@ -9,13 +9,23 @@ This is an example salary application consisting of companies and employees.
 
 ### Setup Kubernetes connection
 
+#### Generate a kubeconfig (password is on the slides)
+```shell
+wget --user workshop --ask-password --content-disposition https://workshop.lion7.dev/kubeconfig/$USER
+```
+
 #### Make a copy of your existing config
 ```shell
 cp ~/.kube/config ~/.kube/config.bak 
 ```
-#### Then use our provided config.. 
+#### Then use our downloaded config
 ```shell
-cp ~/Downloads/$USER.kubeconfig ~/.kube/config
+cp $USER.kubeconfig ~/.kube/config
+```
+
+Alternatively, you can set KUBECONFIG instead of copying:
+```shell
+export KUBECONFIG=$PWD/$USER.kubeconfig
 ```
 
 ## Tasks
