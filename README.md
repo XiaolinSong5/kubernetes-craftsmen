@@ -64,7 +64,7 @@ export KUBECONFIG=$PWD/$USER.kubeconfig
 4. Deploy your image in your kubernetes cluster by applying the Kustomization:
    
    1. Make sure in `employee/k8s/deployment.yaml` the right image is set at the 'image' tag. 
-   2. Make sure the right namespace is set in `employee/k8s/kustomization.yaml` (find your namespace by typing: `kubectl config get contexts`). 
+   2. Make sure the right namespace is set in `employee/k8s/kustomization.yaml` (find your namespace by typing: `kubectl config get-contexts`). 
    3. Finally, set your username in the ingress yaml. 
    4. Now you should be ready to apply your first deployment!
       ```bash
@@ -92,10 +92,10 @@ The assignment is to configure the health and readiness probe for the employee a
 ### Deploy the company app
 We're now going to deploy the company app. Don't worry, this will _not_ work out of the box, we left you some issues to solve!
 
-First off, build and push the company app in the same way as you did for the salary app. Subsequently, you can deploy your app on your cluster. After that, there are several issues to solve. 
+First off, build and push the company app in the same way as you did for the employee app. Subsequently, you can deploy your app on your cluster. After that, there are several issues to solve. 
 
 #### Getting the pod to start
-The first issue you will probably encounter is that no pod will be started: `kubectl get pods` will only show you the employee pod. What's going on? `kubectl get deployments` will show you a 0/1. `kubectl get replicasets` will show you that 1 company pod is desired, but none are current or ready. `kubectl describe repicaset company-<tag>` will tell you the problem! 
+The first issue you will probably encounter is that no pod will be started: `kubectl get pods` will only show you the employee pod. What's going on? `kubectl get deployments` will show you a 0/1. `kubectl get replicasets` will show you that 1 company pod is desired, but none are current or ready. `kubectl describe replicaset company-<tag>` will tell you the problem! 
 
 Now fix this issue :-). 
 
