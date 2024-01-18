@@ -15,6 +15,8 @@ spec:
       labels:
         app: employee
     spec:
+      imagePullSecrets:
+        - name: regcred
       containers:
         - name: employee
           image: registry.lion7.dev/<your-username-here>/employee

@@ -66,7 +66,8 @@ export KUBECONFIG=$PWD/$USER.kubeconfig
    1. Make sure in `employee/k8s/deployment.yaml` the right image is set at the 'image' tag. 
    2. Make sure the right namespace is set in `employee/k8s/kustomization.yaml` (find your namespace by typing: `kubectl config get contexts`). 
    3. Finally, set your username in the ingress yaml. 
-   4. Set the secret in the `employee/k8s/secret.yaml`. 
+   4. Create the image registry secret by setting the right auth in config.json and by running `./create-image-repo-secret.sh`
+   5. Now you should be ready to apply your first deployment!
       ```bash
       kubectl apply -k ./employee/k8s
       ```
