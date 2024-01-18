@@ -62,10 +62,14 @@ export KUBECONFIG=$PWD/$USER.kubeconfig
    ```
 
 4. Deploy your image in your kubernetes cluster by applying the Kustomization:
-
-   ```bash
-   kubectl apply -k ./employee/k8s
-   ```
+   
+   1. Make sure in `employee/k8s/deployment.yaml` the right image is set at the 'image' tag. 
+   2. Make sure the right namespace is set in `employee/k8s/kustomization.yaml` (find your namespace by typing: `kubectl config get contexts`). 
+   3. Finally, set your username in the ingress yaml. 
+   4. Set the secret in the `employee/k8s/secret.yaml`. 
+      ```bash
+      kubectl apply -k ./employee/k8s
+      ```
 
 5. Useful kubernetes commands to look around. 
    See [here](https://kubernetes.io/docs/reference/kubectl/quick-reference/) for the kubernetes quick reference guide. 
