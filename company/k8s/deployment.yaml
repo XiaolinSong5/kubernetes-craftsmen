@@ -40,10 +40,10 @@ spec:
             - containerPort: 8081
           resources:
             requests:
-              cpu: "0.5"
+              cpu: "0.3"
               memory: 256Mi
             limits:
-              cpu: "0.5"
+              cpu: "0.3"
               memory: 2Gi
       volumes:
         - name: config-volume
