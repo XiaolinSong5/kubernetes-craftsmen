@@ -75,6 +75,7 @@ export KUBECONFIG=$PWD/$USER.kubeconfig
    See [here](https://kubernetes.io/docs/reference/kubectl/quick-reference/) for the kubernetes quick reference guide. 
 
    ```
+   kubectl get events
    kubectl get all 
    kubectl get deployments
    kubectl get services
