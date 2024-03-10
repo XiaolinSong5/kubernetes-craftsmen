@@ -1,11 +1,12 @@
 # Kubernetes for developers
 This is an example salary application consisting of companies and employees.
-
+/Library/Java/JavaVirtualMachines/jdk-17.jdk/Contents/Home
 ## Preparations
 - Install docker
 - Install Java 17 (and maven)
 - Install [kubectl](https://kubernetes.io/docs/tasks/tools/) 
 - For IntelliJ IDEA: install the Kubernetes plugin
+- Store secret/config in local ./kube/config
 
 ### Setup Kubernetes connection
 
